@@ -1,0 +1,3 @@
+# ft_linear_regression — Python 3.10 dependencies (install via: source ./setup_env.sh)
+matplotlib  # bonus plot only
+flake8  # 42 norm linter
