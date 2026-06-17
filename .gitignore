@@ -1,0 +1,36 @@
+# ---- Build artifacts ----
+*.o
+*.a
+*.so
+*.out
+*.exe
+*.d
+
+# ---- Python ----
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+.ipynb_checkpoints/
+.venv/
+venv/
+env/
+
+# ---- Rust ----
+/target/
+**/target/
+
+# ---- Data / model outputs (regenerable) ----
+*.log
+
+# ---- 42 subject PDFs (kept out of the repo) ----
+*.pdf
+
+# ---- Tooling / OS cruft ----
+.claude/
+.DS_Store
+Thumbs.db
+*.swp
+.idea/
+.vscode/
