@@ -26,6 +26,17 @@ env/
 
 # ---- 42 subject PDFs (kept out of the repo) ----
 *.pdf
+evalsheet.txt
+
+# ---- Trained model artifact (must NOT be pre-committed: predict.py
+# must show 0 on a fresh clone, before train.py has ever run) ----
+/thetas.json
+/plot.png
+
+# ---- Personal study/workflow docs (kept local only, not pushed) ----
+/Aboudi.md
+/Code.md
+/Brain.md
 
 # ---- Tooling / OS cruft ----
 .claude/

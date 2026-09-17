@@ -4,8 +4,8 @@ An introduction to **machine learning**: predict a car's price from its mileage 
 single-feature linear regression trained with **gradient descent** — implemented in pure
 Python with no NumPy, so the maths is all visible.
 
-> 42 ML-intro project. Code + bonus complete, verified on synthetic data; awaiting the
-> official `data.csv`.
+> 42 ML-intro project. Code + bonus complete, verified end-to-end on the official
+> `data/data.csv` (24 cars): θ₀=8499.60, θ₁=-0.021449, R²=0.733.
 
 ## The two programs
 
@@ -47,11 +47,6 @@ bash test_flr.sh     # 11 checks, all pass
 Covers noiseless recovery (θ recovered to < 0.1% on a synthetic line), error paths
 (malformed CSV with line numbers, negative values), and the σ = 0 guard.
 
-## Required data (not in the repo)
-
-The official `data.csv` goes in `data/` — see `get_these.txt`. Then re-run `train.py`
-and `plot.py` and eyeball the fit.
-
 ## Notes for defense
 
 - **Stdlib only** (csv / json / math by hand, no NumPy) — so "the library did the work"
@@ -61,5 +56,5 @@ and `plot.py` and eyeball the fit.
 
 ## Status
 
-Code + bonus complete, verified on synthetic data. Blocked only on the official dataset
-for the real-data sanity check.
+Code + bonus complete, verified against both a synthetic noiseless line (θ recovered to
+< 0.1%) and the official 24-car dataset. Ready for defense.
