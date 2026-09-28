@@ -38,6 +38,10 @@ evalsheet.txt
 /Code.md
 /Brain.md
 
+# ---- Bonus programs (withheld from this submission; kept local only) ----
+/precision.py
+/plot.py
+
 # ---- Tooling / OS cruft ----
 .claude/
 .DS_Store

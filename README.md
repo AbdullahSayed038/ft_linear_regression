@@ -4,8 +4,8 @@ An introduction to **machine learning**: predict a car's price from its mileage 
 single-feature linear regression trained with **gradient descent** — implemented in pure
 Python with no NumPy, so the maths is all visible.
 
-> 42 ML-intro project. Code + bonus complete, verified end-to-end on the official
-> `data/data.csv` (24 cars): θ₀=8499.60, θ₁=-0.021449, R²=0.733.
+> 42 ML-intro project, mandatory part only. Verified end-to-end on the official
+> `data/data.csv` (24 cars): θ₀=8499.60, θ₁=-0.021449.
 
 ## The two programs
 
@@ -13,11 +13,6 @@ Python with no NumPy, so the maths is all visible.
   hypothesis `price = θ₀ + θ₁ · mileage`. Before any training it predicts 0 (θ = 0, 0).
 - **`train.py`** — runs the subject's exact gradient-descent update with **simultaneous**
   θ₀/θ₁ updates, then saves the learned parameters to `thetas.json`.
-
-### Bonus
-
-- `precision.py` — reports MAE, RMSE, and R² of the trained model.
-- `plot.py` — scatter of the data with the fitted line, saved to `plot.png`.
 
 ## Why normalisation matters
 
@@ -34,14 +29,12 @@ mileage case (σ = 0) is guarded so it can't divide by zero.
 ```sh
 python3 train.py            # reads data/data.csv -> thetas.json
 python3 predict.py          # prompts for a mileage, prints the estimate
-python3 precision.py        # bonus: MAE / RMSE / R²
-python3 plot.py             # bonus: scatter + fitted line -> plot.png
 ```
 
 ## Verification
 
 ```sh
-bash test_flr.sh     # 11 checks, all pass
+bash test_flr.sh     # 9 checks, all pass
 ```
 
 Covers noiseless recovery (θ recovered to < 0.1% on a synthetic line), error paths
@@ -56,5 +49,5 @@ Covers noiseless recovery (θ recovered to < 0.1% on a synthetic line), error pa
 
 ## Status
 
-Code + bonus complete, verified against both a synthetic noiseless line (θ recovered to
+Mandatory part complete, verified against both a synthetic noiseless line (θ recovered to
 < 0.1%) and the official 24-car dataset. Ready for defense.

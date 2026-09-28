@@ -1,7 +1,6 @@
 #!/bin/bash
-# ft_linear_regression test suite -- run inside WSL from the project root.
-# Uses a SYNTHETIC fixture (tests/synth.csv); the official data.csv from
-# intra is a separate resource (see get_these.txt).
+# ft_linear_regression test suite (mandatory part only) -- run from the
+# project root. Uses a SYNTHETIC fixture (tests/synth.csv).
 set -u
 cd "$(dirname "$0")" || exit 1
 fail=0
@@ -40,14 +39,6 @@ out=$(echo 100000 | python3 predict.py)
 # 8000 - 0.021*100000 = 5900
 echo "$out" | grep -qE '59[0-9][0-9]\.|5899\.|5900\.' \
     && ok "predict(100000) ~ 5900: $out" || ko "unexpected: $out"
-
-echo "== precision on a noiseless fit"
-out=$(python3 precision.py tests/synth.csv)
-echo "$out" | grep -q 'R^2  = 1.000000' && ok "R^2 = 1" || ko "R^2 not 1: $out"
-
-echo "== plot bonus writes a png"
-python3 plot.py tests/synth.csv --out tests/plot.png > /dev/null \
-    && test -s tests/plot.png && ok "plot.png created" || ko "plot failed"
 
 echo "== error handling"
 echo abc | python3 predict.py >/dev/null 2>&1 && ko "non-numeric accepted" \
