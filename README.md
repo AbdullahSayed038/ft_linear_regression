@@ -1,24 +1,26 @@
 # ft_linear_regression
 
+![Gradient descent fitting a price-vs-mileage line to 24 cars, with the cost falling on a log-log plot](assets/linear_regression.gif)
+
 An introduction to **machine learning**: predict a car's price from its mileage using a
 single-feature linear regression trained with **gradient descent** — implemented in pure
 Python with no NumPy, so the maths is all visible.
 
-> 42 ML-intro project, mandatory part only. Verified end-to-end on the official
+> 42 ML-intro project. Verified end-to-end on the official
 > `data/data.csv` (24 cars): θ₀=8499.60, θ₁=-0.021449.
 
 ## The two programs
 
 - **`predict.py`** — prompts for a mileage and returns the estimated price using the
   hypothesis `price = θ₀ + θ₁ · mileage`. Before any training it predicts 0 (θ = 0, 0).
-- **`train.py`** — runs the subject's exact gradient-descent update with **simultaneous**
-  θ₀/θ₁ updates, then saves the learned parameters to `thetas.json`.
+- **`train.py`** — runs the exact gradient-descent update from the project spec, with
+  **simultaneous** θ₀/θ₁ updates, then saves the learned parameters to `thetas.json`.
 
 ## Why normalisation matters
 
 Raw mileage (~10⁵ km) makes gradient descent diverge, so `train.py` **z-score
 normalises** the mileage during training only, then **denormalises** θ before saving —
-so the stored parameters work directly on raw kilometres with the subject's hypothesis.
+so the stored parameters work directly on raw kilometres with the project spec's hypothesis.
 This is the key conceptual hurdle of the project, and it's handled explicitly.
 
 Defaults: learning rate 0.1, 1000 iterations (both overridable via CLI). The all-same
@@ -40,14 +42,14 @@ bash test_flr.sh     # 9 checks, all pass
 Covers noiseless recovery (θ recovered to < 0.1% on a synthetic line), error paths
 (malformed CSV with line numbers, negative values), and the σ = 0 guard.
 
-## Notes for defense
+## Design choices
 
-- **Stdlib only** (csv / json / math by hand, no NumPy) — so "the library did the work"
-  is not answerable.
+- **Stdlib only** (csv / json / math by hand, no NumPy) — every step of the maths is in
+  the code, not hidden behind a library call.
 - `thetas.json` lives next to the scripts (path from `__file__`, not the cwd); a missing
-  file means θ = (0, 0), per the subject.
+  file means θ = (0, 0), as the project spec requires.
 
 ## Status
 
-Mandatory part complete, verified against both a synthetic noiseless line (θ recovered to
-< 0.1%) and the official 24-car dataset. Ready for defense.
+Verified against both a synthetic noiseless line (θ recovered to < 0.1%) and the official
+24-car dataset.
